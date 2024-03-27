@@ -6,7 +6,13 @@ block content
   button I'm a button 
   p
   button(type="button", class="btn btn-secondary", onclick="double()")     Press me
+  p 
   div(id="double") Up the amount
+  p
+  a(href='/doors') View doors
+ 
+  script.
+    console.log("running on http://localhost:3000/")
   script.
     var value = 0;
     var power = 1;
