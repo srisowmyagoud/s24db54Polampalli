@@ -1,12 +1,27 @@
 extends layout
  
 block content
-  h1= title
+  h1 This is Doors Page
+  -
+    let results = [
+      { Type: 'Flush', Model: 'Wood', Price: 20000 },
+      { Type: 'Dutch', Model: 'Timber', Price: 25000 },
+      { Type: 'Louver', Model: 'Plywood', Price: 15000 }
+    ]
+ 
   .container-fluid
     .row
-      -
-      for door in doors
+      each item, index in results
         .col-sm-2
-          h3= `Type: ${door.Type}`
-          p= `Model: ${door.Model}`
-          p= `Price: ${door.Price}`
+          .search-result(onclick=`buy(${index})`)
+            h6 Type: #{item.Type}
+            h6 Model: #{item.Model}
+            h6 Price: #{item.Price}
+ 
+  a(href="/") Back to index page
+ 
+  script.
+    function buy(index) {
+      alert("You purchased item " + index);
+    }
+ 
