@@ -1,9 +1,14 @@
-var express = require('express');
-var router = express.Router();
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+const express = require('express');
+const router = express.Router();
+ 
+const doors = [
+  { Type: 'Flush', model: 'Wood', Price: 20000 },
+  { Type: 'Dutch', model: 'Timber', Price: 25000 },
+  { Type: 'Louver', model: 'Plywood', Price: 15000 },
+];
+ 
+router.get('/', (req, res) => {
+  res.render('doors', { title: 'Search Results', doors });
 });
-
+ 
 module.exports = router;

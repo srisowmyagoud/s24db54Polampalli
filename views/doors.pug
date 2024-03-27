@@ -1,18 +1,12 @@
 extends layout
-
+ 
 block content
   h1= title
-  p Sri sowmya polampalli #{title}
-  button I'm a button 
-  p
-  button(type="button", class="btn btn-secondary", onclick="double()")     Press me
-  div(id="double") Up the amount
-  script.
-    var value = 0;
-    var power = 1;
-    function double(){
-        value++;
-        power *= 2;
-        var result = "2 to the power of " + value + " is " + power;
-        document.getElementById('double').innerText = result;
-    }
+  .container-fluid
+    .row
+      -
+      for door in doors
+        .col-sm-2
+          h3= `Type: ${door.Type}`
+          p= `Model: ${door.Model}`
+          p= `Price: ${door.Price}`

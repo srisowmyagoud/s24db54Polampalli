@@ -1,24 +1,24 @@
 extends layout
-
+ 
 block content
   h1= title
-  p Sri sowmya polampalli #{title}
-  button I'm a button 
+  p Welcome to sowmya web page #{title}
+ 
+  button(type="button", class="btn btn-secondary" onclick="double()") button
   p
-  button(type="button", class="btn btn-secondary", onclick="double()")     Press me
-  p 
-  div(id="double") Up the amount
+  div#double Up the amount
   p
   a(href='/doors') View doors
  
   script.
     console.log("running on http://localhost:3000/")
+ 
   script.
     var value = 0;
     var power = 1;
-    function double(){
-        value++;
+ 
+    function double() {
+        value += 1;
         power *= 2;
-        var result = "2 to the power of " + value + " is " + power;
-        document.getElementById('double').innerText = result;
+        document.getElementById('double').textContent = `Two to the power ${value} is ${powerg}`;
     }
