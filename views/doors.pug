@@ -1,21 +1,21 @@
 extends layout
- 
+
 block content
   h1 This is Doors Page
   -
     let doors = results
- 
+
   .container-fluid
     .row
-      each doors, index in results
+      each item, index in doors 
         .col-sm-2
           .search-result(onclick=`buy(${index})`)
-            h6 door_type: #{item.door_type}
-            h6 door_model: #{item.door_model}
-            h6 door_price: #{item.door_price}
- 
+            h6 doors_type: #{item.doors_type}
+            h6 doors_model: #{item.doors_model}
+            h6 doors_price: #{item.doors_price}
+
   a(href="/") Back to index page
- 
+
   script.
     function buy(index) {
         alert(`You purchased item ${index}`);

@@ -65,21 +65,21 @@ async function recreateDB(){
 // Delete everything
 await doors.deleteMany();
 let instance1 = new
-doors({door_type:"flush", door_model:'wood',door_price:15.4});
+doors({doors_type:"flush", doors_model:'wood',doors_price:15.4});
 instance1.save().then(doc=>{
 console.log("First object saved")}
 ).catch(err=>{
 console.error(err)
 });
 let instance2 = new
-doors({door_type:"dutch", door_model:'metal',door_price:4});
+doors({doors_type:"dutch", doors_model:'metal',doors_price:4});
 instance2.save().then(doc=>{
 console.log("Second object saved")}
 ).catch(err=>{
 console.error(err)
 });
 let instance3 = new
-doors({door_type:"window", door_model:'aliminium',door_price:14});
+doors({doors_type:"window", doors_model:'aliminium',doors_price:14});
 instance3.save().then(doc=>{
 console.log("Third object saved")}
 ).catch(err=>{

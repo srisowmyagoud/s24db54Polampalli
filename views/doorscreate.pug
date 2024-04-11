@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  h1= title
+  form(id='doorsForm', action="/resource/doors", method="POST")
+    div.form-group
+      label.doorsAttr(for='doors_type') doors type
+      input#doors_type(type='text', name='doors_type')
+    div.form-group
+      label.doorsAttr(for='model') doors model
+      input#model(type='text', name='doors_model')
+    div.form-group
+      label.doorsAttr(for='price') doors price
+      input#cost(type='number', name='doors_price')
+    input(type="submit")
+
+  script.
+    document.forms['doorsForm'].addEventListener('submit', (event) => {
+      event.preventDefault();
+      // TODO do something here to show user that form is being submitted
+      fetch(event.target.action, {
+        method: 'POST',
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+      }).then((resp) => {
+        return resp.json(); // or resp.text() or whatever the server sends
+      }).then((body) => {
+        alert("Save succeeded");
+        // TODO handle body
+      }).catch((error) => {
+        // TODO handle error
+        alert("Save failed " + error );
+      });
+    });

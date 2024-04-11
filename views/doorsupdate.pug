@@ -1,0 +1,44 @@
+extends layout
+
+block content
+    h1= title
+
+    if (toShow == null)
+        h2 No instance to update
+    else
+        - let doorsid = toShow._id
+        - let doors_type = toShow.doors_type
+        - let doors_model = toShow.doors_model
+        - let doors_price = toShow.doors_price
+        div.row(class='mb-2')
+            div.mr-1 ID is
+                div #{doorsid}
+                - let actionid = "/resource/doors/" + doorsid
+                form(id='doorsForm', action= actionid, method="POST")
+                    div.form-group
+                        label.doorsAttr(for='doors_type') doors Type
+                        input#doors_type(type='text' name='doors_type', value= doors_type)
+                    div.form-group
+                        label.doorsAttr(for='doors_model') doors model
+                        input#doors_model(type='text' name='doors_model', value= doors_model)
+                    div.form-group
+                        label.doorsAttr(for='doors_price') doors Price
+                        input#doors_price(type='number' name='doors_price', value= doors_price)
+                    input(type="submit")
+    script.
+        document.forms['doorsForm'].addEventListener('submit', (event) => {
+            event.preventDefault();
+            // TODO do something here to show user that form is being submitted
+            fetch(event.target.action, {
+                method: 'PUT',
+                body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+            }).then((resp) => {
+                return resp.text(); // or resp.text() or whatever the server sends
+            }).then((body) => {
+                alert("Update succeeded")
+                // TODO handle body
+            }).catch((error) => {
+                // TODO handle error
+                alert("Update failed " + error )
+            });
+        });

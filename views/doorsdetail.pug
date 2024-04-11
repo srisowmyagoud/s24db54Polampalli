@@ -1,0 +1,22 @@
+extends layout
+block content
+  h1= title
+
+  
+    - let doorsid = toShow._id
+    - let doors_type = toShow.doors_type
+    - let doors_model = toShow.doors_model
+    - let doors_price = toShow.doors_price 
+    div
+      div.row
+        div.doorsAttr.mr-3 doors ID is:
+        div #{doorsid}
+      div.row
+        div.doorsAttr.mr-3 doors Type is:
+        div #{doors_type}
+      div.row
+        div.doorsAttr.mr-3 doors model is:
+        div #{doors_model}
+      div.row
+        div.doorsAttr.mr-3 doors Price is:
+        div #{doors_price}

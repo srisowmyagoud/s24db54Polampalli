@@ -7,7 +7,7 @@ var doors_controller = require('../controllers/doors');
 // GET resources base.
 router.get('/', api_controller.api);
 /// doors ROUTES ///
-// POST request for creating a doors. 
+// POST request for creating a doors.
 router.post('/doors', doors_controller.doors_create_post);
 // DELETE request to delete doors.
 router.delete('/doors/:id', doors_controller.doors_delete);
