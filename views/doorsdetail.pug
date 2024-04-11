@@ -2,7 +2,9 @@ extends layout
 block content
   h1= title
 
-  
+  if toShow == null
+    h2 No instance to show
+  else
     - let doorsid = toShow._id
     - let doors_type = toShow.doors_type
     - let doors_model = toShow.doors_model
